@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Sign up - Brand</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="assets/css/smoothproducts.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+        <div class="container"><a class="navbar-brand logo" href="/index">BikeSharing</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse"
+                id="navcol-1">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/index">Home</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/stations">STATIONS</a></li>
+					<li class="nav-item" role="presentation"><a class="nav-link" href="/pricing">Pricing</a></li>
+					<li class="nav-item" role="presentation"><a class="nav-link" href="/sign-in">SIGN IN</a></li>
+					<li class="nav-item" role="presentation"><a class="nav-link active" href="/sign-up">Sign up</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="page contact-us-page">
+        <section class="clean-block clean-form dark">
+            <div class="container">
+                <div class="block-heading">
+                    <h2 class="text-info">Sign Up</h2>
+					<div th:switch="${fail}">
+                    <p th:case="null">Create an account and get your awesome&nbsp;<br>trip around Cluj-Napoca going !</p>
+					<p th:case="*" style="color:red" th:text="${fail}"></p>
+					</div>
+                </div>
+            <form action="#" th:action="@{/adduser}" th:object="${user}" method="post">
+                <div class="form-group">
+                    <div class="form-group">
+                        <label for="name" class="col-form-label">Name</label>
+                        <input type="text" th:field="*{name}" class="form-control" id="name" placeholder="Name">
+                        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="Email" class="col-form-label">Email</label>
+                        <input type="email" th:field="*{email}" class="form-control" id="Email" placeholder="Email">
+                        <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger"></span>
+                    </div>
+					<div class="form-group">
+                        <label for="Password" class="col-form-label">Password</label>
+                        <input type="password" th:field="*{password}" class="form-control" id="Password" placeholder="Password">
+                        <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="text-danger"></span>
+                    </div>
+					<div class="form-group">
+                        <label for="RepeatPassword" class="col-form-label">Repeat Password</label>
+                        <input type="password" th:field="*{repeatPassword}" class="form-control" id="RepeatPassword" placeholder="Repeat Password">
+                        <span th:if="${#fields.hasErrors('repeatPassword')}" th:errors="*{repeatPassword}" class="text-danger"></span>
+                    </div>
+				</div>
+                <div class="row">
+                    <div class="col-md-6 mt-5">
+                        <input type="submit" class="btn btn-primary" value="Add User">
+                    </div>
+                </div>
+            </form>
+            </div>
+        </section>
+    </main>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="assets/js/smoothproducts.min.js"></script>
+    <script src="assets/js/theme.js"></script>
+</body>
+
+</html>

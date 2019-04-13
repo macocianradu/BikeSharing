@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Home - Brand</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="assets/css/smoothproducts.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+        <div class="container"><a class="navbar-brand logo" href="/index">BikeSharing</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse"
+                id="navcol-1" th:switch="${user}">
+                <ul class="nav navbar-nav ml-auto" th:case='null'>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="/index">Home</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/stations">STATIONS</a></li>
+					<li class="nav-item" role="presentation"><a class="nav-link" href="/pricing">Pricing</a></li>
+					<li class="nav-item" role="presentation"><a class="nav-link" href="/sign-in">SIGN IN</a></li>
+					<li class="nav-item" role="presentation"><a class="nav-link" href="/sign-up">Sign up</a></li>
+                </ul>
+				<ul class="nav navbar-nav ml-auto" th:case='*'>
+					<li class="nav-item" role="presentation"><a class="nav-link active" href="/index">Home</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/stations">STATIONS</a></li>
+					<li class="nav-item" role="presentation"><a class="nav-link" href="/pricing">Pricing</a></li>
+					<li class="nav-item" role="presentation"><a class="nav-link" th:href="@{/edit}" th:text="${user.name}">Logged in</a></li>
+					<li class="nav-item" role="presentation"><a class="nav-link" href="/sign-out">Sign out</a></li>
+				</ul>
+            </div>
+        </div>
+    </nav>
+    <main class="page landing-page">
+        <section class="clean-block clean-hero" style="background-image:url(&quot;assets/img/tech/image4.jpg&quot;);color:rgba(9, 162, 255, 0.85);">
+            <div class="text">
+                <h2>How about biking in Cluj-Napoca?</h2>
+                <p>We're providing the healthy way of traveling the city one side to the other. Join the community that cares about the environment !</p>
+                <form action="/stations">
+                    <input type="submit" class="btn btn-outline-light btn-lg" value="Stations">
+            </form>
+            </div>
+        </section>
+        <section class="clean-block clean-info dark">
+            <div class="container">
+                <div class="block-heading">
+                    <h2 class="text-info">Info</h2>
+                    <p>You can easily see live analythics revealing the productivity of our solution.</p>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-md-6"><img class="img-thumbnail" src="assets/img/scenery/image5.jpg"></div>
+                    <div class="col-md-6">
+                        <h3>The best that you can get</h3>
+                        <div class="getting-started-info">
+                            <p>Cluj-Napoca as capital of historical region Transylvania, is one of the most visited cities in Romania. The city, with 324,000 people, is very pleasant, and it is certainly a great experience for those who want to see urban
+                                Transylvanian life at its best.&nbsp;</p>
+                        </div><!--<button class="btn btn-outline-primary btn-lg" type="button">Join Now</button>-->
+						<form action="/sign-up">
+							  <input type="submit" class="btn btn-outline-primary btn-lg" value="Join Now"></div></form>
+                </div>
+            </div>
+        </section>
+        <section class="clean-block features">
+            <div class="container">
+                <div class="block-heading">
+                    <h2 class="text-info">Features</h2>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-5 feature-box"><i class="icon-star icon"></i>
+                        <h4>Dynamic</h4>
+                        <p></p>
+                    </div>
+                    <div class="col-md-5 feature-box"><i class="icon-pencil icon"></i>
+                        <h4>Customizable</h4>
+                        <p></p>
+                    </div>
+                    <div class="col-md-5 feature-box"><i class="icon-screen-smartphone icon"></i>
+                        <h4>Responsive</h4>
+                        <p></p>
+                    </div>
+                    <div class="col-md-5 feature-box"><i class="icon-refresh icon"></i>
+                        <h4>All Browser Compatibility</h4>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="clean-block about-us">
+            <div class="container">
+                <div class="block-heading">
+                    <h2 class="text-info">About Us</h2>
+                    <p>We're a super team always eager to provide the best solutions.</p>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="card clean-card text-center"><img class="card-img-top w-100 d-block" src="assets/img/avatars/avatar4.jpg">
+                            <div class="card-body info">
+                                <h4 class="card-title">Bogdan Ungur</h4>
+                                <p class="card-text">He's the brain.</p>
+                                <div class="icons"><a href="#"><i class="icon-social-facebook"></i></a><a href="#"><i class="icon-social-instagram"></i></a><a href="#"><i class="icon-social-twitter"></i></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="card clean-card text-center"><img src="assets/img/avatars/avatar1.jpg" class="card-img-top w-100 d-block" />
+                            <div class="card-body info">
+                                <h4 class="card-title">Radu Macocian</h4>
+                                <p class="card-text">He's the main man.</p>
+                                <div class="icons"><a href="#"><i class="icon-social-facebook"></i></a><a href="#"><i class="icon-social-instagram"></i></a><a href="#"><i class="icon-social-twitter"></i></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="card clean-card text-center"><img class="card-img-top w-100 d-block" src="assets/img/avatars/avatar2.jpg">
+                            <div class="card-body info">
+                                <h4 class="card-title">Catalin Tira</h4>
+                                <p class="card-text">I'm doin' nice design.</p>
+                                <div class="icons"><a href="#"><i class="icon-social-facebook"></i></a><a href="#"><i class="icon-social-instagram"></i></a><a href="#"><i class="icon-social-twitter"></i></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="card clean-card text-center"><img class="card-img-top w-100 d-block" src="assets/img/avatars/avatar3.jpg">
+                            <div class="card-body info">
+                                <h4 class="card-title">Bogdan Marcu</h4>
+                                <p class="card-text">???</p>
+                                <div class="icons"><a href="#"><i class="icon-social-facebook"></i></a><a href="#"><i class="icon-social-instagram"></i></a><a href="#"><i class="icon-social-twitter"></i></a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="assets/js/smoothproducts.min.js"></script>
+    <script src="assets/js/theme.js"></script>
+</body>
+
+</html>

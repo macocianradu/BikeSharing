@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Services - Brand</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
+    <link rel="stylesheet" href="assets/css/Dynamic-Table.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="assets/css/MUSA_panel-table-1.css">
+    <link rel="stylesheet" href="assets/css/MUSA_panel-table.css">
+    <link rel="stylesheet" href="assets/css/Newsletter-Subscription-Form.css">
+    <link rel="stylesheet" href="assets/css/Profile-Edit-Form-1.css">
+    <link rel="stylesheet" href="assets/css/Profile-Edit-Form.css">
+    <link rel="stylesheet" href="assets/css/smoothproducts.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+        <div class="container"><a class="navbar-brand logo" href="/index">BikeSharing</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse"
+                id="navcol-1" th:switch="${user}">
+                <ul class="nav navbar-nav ml-auto" th:case='null'>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/index">Home</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/stations">STATIONS</a></li>
+					<li class="nav-item" role="presentation"><a class="nav-link" href="/pricing">Pricing</a></li>
+					<li class="nav-item" role="presentation"><a class="nav-link  active" href="/sign-in">SIGN IN</a></li>
+					<li class="nav-item" role="presentation"><a class="nav-link" href="/sign-up">Sign up</a></li>
+                </ul>
+				<ul class="nav navbar-nav ml-auto" th:case='*'>
+					<li class="nav-item" role="presentation"><a class="nav-link" href="/index">Home</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/stations">STATIONS</a></li>
+					<li class="nav-item" role="presentation"><a class="nav-link" href="/pricing">Pricing</a></li>
+					<li class="nav-item" role="presentation"><a class="nav-link active" th:href="@{/edit}" th:text="${user.name}">Logged in</a></li>
+					<li class="nav-item" role="presentation"><a class="nav-link" href="/sign-out">Sign out</a></li>
+				</ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container profile profile-view" id="profile">
+        <div class="row">
+            <div class="col-md-12 alert-col relative">
+                <div class="alert alert-info absolue center" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button><span>Profile save with success</span></div>
+            </div>
+        </div>
+				<br><br><br><br><br><br><br>
+        <form action="#" th:action="@{/update}" th:object="${user}" method="post">
+            <div class="form-row profile-row">
+                <div class="col-md-4 relative">
+                    <div class="avatar">
+                        <div class="avatar-bg center"></div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <h1>Profile </h1>
+						<div th:switch="${fail}">
+							<p th:case="null">Edit your profile</p>
+							<p th:case="*" style="color:red" th:text="${fail}"></p>
+						</div>
+                    <hr>
+                    <div class="form-row">
+                        <div class="col-sm-12 col-md-6">
+                            <label for="name" class="col-form-label">Name</label>
+							<input type="text" th:field="*{name}" class="form-control" id="name" placeholder="Name">
+							<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+						<label for="Email" class="col-form-label">Email</label>
+                        <input type="email" th:field="*{email}" class="form-control" id="Email" placeholder="Email">
+                        <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger"></span>
+					</div>
+					<div class="form-row">
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group">
+								<label for="Password" class="col-form-label">Password</label>
+								<input type="password" th:field="*{password}" class="form-control" id="Password" placeholder="Password">
+								<span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="text-danger"></span>
+							</div>
+                    </div>
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group">
+								<label for="RepeatPassword" class="col-form-label">Repeat Password</label>
+								<input type="password" th:field="*{repeatPassword}" class="form-control" id="RepeatPassword" placeholder="Repeat Password">
+								<span th:if="${#fields.hasErrors('repeatPassword')}" th:errors="*{repeatPassword}" class="text-danger"></span>
+							</div>
+                        </div>
+                    </div>
+					<div class="form-row">
+						<div class="col-sm-12 col-md-6">
+                            <div class="form-group" th:switch="${user.bikeId}">
+								<label>Current Bike: </label>
+								<label th:case="null"> You haven't rented a bike yet</label>
+								<label th:case="*" th:text="${user.bikeId}">
+							</div>
+                        </div>
+					</div>
+                    <hr>
+                    <div class="form-row">
+                        <div class="col-md-12 content-right"><input type="submit" class="btn btn-primary" value="Save"><button class="btn btn-danger form-btn" type="reset">CANCEL </button></div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <main class="page service-page"></main>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="assets/js/smoothproducts.min.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/Dynamic-Table.js"></script>
+    <script src="assets/js/Profile-Edit-Form.js"></script>
+</body>
+
+</html>

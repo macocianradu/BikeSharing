@@ -1,0 +1,35 @@
+INSERT INTO Bike_Station (Id, Bikes, Capacity, X, Y) VALUES (7, '11, 21', 10, 150, 200);
+INSERT INTO Bike_Station (Id, Bikes, Capacity, X, Y) VALUES (6, '9, 12, 13, 17, 18, 19', 10, 51, 251);
+INSERT INTO Bike_Station (Id, Bikes, Capacity, X, Y) VALUES (3, '31, 22, 25, 30, 8, 34, 35, 67, 69, 77', 10, 700, 800);
+INSERT INTO Bike_Station (Id, Bikes, Capacity, X, Y) VALUES (4, '', 10, 900, 350);
+INSERT INTO Bike_Station (Id, Bikes, Capacity, X, Y) VALUES (5, '66', 10, 150, 500);
+INSERT INTO Bike_Station (Id, Bikes, Capacity, X, Y) VALUES (1, '1, 2, 3, 4, 5', 10, 150, 250);
+
+INSERT INTO Bike (Id, Status) VALUES (11,'in station');
+INSERT INTO Bike (Id, Status) VALUES (21,'in station');
+INSERT INTO Bike (Id, Status) VALUES (9,'in station');
+INSERT INTO Bike (Id, Status) VALUES (12,'in station');
+INSERT INTO Bike (Id, Status) VALUES (13,'in station');
+INSERT INTO Bike (Id, Status) VALUES (17,'in station');
+INSERT INTO Bike (Id, Status) VALUES (18,'in station');
+INSERT INTO Bike (Id, Status) VALUES (19,'in station');
+INSERT INTO Bike (Id, Status) VALUES (31,'in station');
+INSERT INTO Bike (Id, Status) VALUES (22,'in station');
+INSERT INTO Bike (Id, Status) VALUES (25,'in station');
+INSERT INTO Bike (Id, Status) VALUES (30,'in station');
+INSERT INTO Bike (Id, Status) VALUES (8,'in station');
+INSERT INTO Bike (Id, Status) VALUES (34,'in station');
+INSERT INTO Bike (Id, Status) VALUES (35,'in station');
+INSERT INTO Bike (Id, Status) VALUES (67,'in station');
+INSERT INTO Bike (Id, Status) VALUES (69,'in station');
+INSERT INTO Bike (Id, Status) VALUES (77,'in station');
+INSERT INTO Bike (Id, Status) VALUES (66,'in station');
+INSERT INTO Bike (Id, Status) VALUES (1,'in station');
+INSERT INTO Bike (Id, Status) VALUES (2,'in station');
+INSERT INTO Bike (Id, Status) VALUES (3,'in station');
+INSERT INTO Bike (Id, Status) VALUES (4,'in station');
+INSERT INTO Bike (Id, Status) VALUES (5,'in station');
+
+INSERT INTO User (Id, Email, Name, Password) VALUES (100,'mena@gmail.com','Mary','12345');
+INSERT INTO User (Id, Email, Name, Password) VALUES (101,'boma@mail.ru','Marcu','7777strongpassword');
+INSERT INTO User (Id, Email, Name, Password) VALUES (102,'hmlmm@yahoo.com','John','whatdoIdofora10');
